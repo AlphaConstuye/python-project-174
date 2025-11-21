@@ -1,0 +1,13 @@
+{"version": 2, "width": 168, "height": 44, "timestamp": 1763319570, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.043961, "o", "\u001b[?2004h\u001b]0;alphaconstruye@DESKTOP-9VHH675: ~/python-project-174\u0007\u001b[01;32malphaconstruye@DESKTOP-9VHH675\u001b[00m:\u001b[01;34m~/python-project-174\u001b[00m$ "]
+[14.672578, "o", "poetry run gendiff file1.json fi"]
+[14.6734, "o", "le2.json"]
+[14.673885, "o", "\r\n\u001b[?2004l\r"]
+[16.4582, "o", "{\r\n  - follow: False\r\n    host: hexlet.io\r\n  - proxy: 123.234.53.22\r\n  - timeout: 50\r\n  + timeout: 20\r\n  + verbose: True\r\n}\r\n"]
+[16.465229, "o", "\u001b[?2004h\u001b]0;alphaconstruye@DESKTOP-9VHH675: ~/python-project-174\u0007\u001b[01;32malphaconstruye@DESKTOP-9VHH675\u001b[00m:\u001b[01;34m~/python-project-174\u001b[00m$ "]
+[27.86866, "o", "e"]
+[28.088267, "o", "x"]
+[28.227564, "o", "i"]
+[28.355981, "o", "t"]
+[29.099281, "o", "\r\n\u001b[?2004l\r"]
+[29.099665, "o", "exit\r\n"]
