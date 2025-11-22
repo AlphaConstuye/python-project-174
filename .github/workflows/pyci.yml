@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -28,17 +28,6 @@ jobs:
       - name: Run linter
         run: make lint
 
-      - name: Prepare coverage
-        run: ./cc-test-reporter before-build
-
       - name: Run tests
         run: |
-          poetry run pytest --cov=gendiff --cov-report xml
-
-      - name: Upload coverage to CodeClimate
-        run: |
-          ./cc-test-reporter format-coverage coverage.xml --input-type coverage.py
-          ./cc-test-reporter upload-coverage
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-
+          poetry run pytest tests/ -v

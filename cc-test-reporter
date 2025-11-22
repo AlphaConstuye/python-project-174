@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>NoSuchBucket</Code><Message>The specified bucket does not exist</Message><BucketName>codeclimate-test-reporter-binaries</BucketName><RequestId>S0YQGFFF5B556QX3</RequestId><HostId>8Yz/vsBxmC0JjnZOJwGZ6RYBHD7KvODayuw6aZDV/RA4qKvdL5u5b7yZsSgFLzP5Ei57dHU1Pjc=</HostId></Error>
