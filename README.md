@@ -35,3 +35,23 @@ cd python-project-174
 ## Video demostración:
  https://asciinema.org/a/UFayigku3W3FhrwEJxMYLmana
 
+## Soporte para formatos
+
+Ahora soporta tanto JSON como YAML:
+
+```bash
+# Comparar archivos JSON
+gendiff file1.json file2.json
+
+# Comparar archivos YAML
+gendiff file1.yml file2.yaml
+
+# Comparar formatos mixtos
+gendiff file1.json file2.yml
+
+## Soporte para YAML
+
+El comparador ahora soporta archivos YAML (.yml y .yaml):
+
+```bash
+gendiff file1.yml file2.yaml
