@@ -11,9 +11,9 @@ def generate_diff(file1, file2, format_name='stylish'):
     """
     data1 = load_file(file1)
     data2 = load_file(file2)
-    
+
     diff_tree = build_diff(data1, data2)
-    
+
     if format_name == 'stylish':
         return "{\n" + format_stylish(diff_tree) + "\n}"
     elif format_name == 'plain':
