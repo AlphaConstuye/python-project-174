@@ -3,9 +3,9 @@ from gendiff.formatters.stylish import format_stylish
 
 def test_format_stylish_flat():
     diff_tree = [
-        {'type': 'unchanged', 'key': 'a', 'value': 1},
-        {'type': 'removed', 'key': 'b', 'value': 2},
-        {'type': 'added', 'key': 'c', 'value': 3}
+        {"type": "unchanged", "key": "a", "value": 1},
+        {"type": "removed", "key": "b", "value": 2},
+        {"type": "added", "key": "c", "value": 3},
     ]
 
     result = format_stylish(diff_tree)
@@ -17,11 +17,11 @@ def test_format_stylish_flat():
 def test_format_stylish_nested():
     diff_tree = [
         {
-            'type': 'nested',
-            'key': 'a',
-            'children': [
-                {'type': 'changed', 'key': 'b', 'old_value': 1, 'new_value': 2}
-            ]
+            "type": "nested",
+            "key": "a",
+            "children": [
+                {"type": "changed", "key": "b", "old_value": 1, "new_value": 2}
+            ],
         }
     ]
 
@@ -33,13 +33,7 @@ def test_format_stylish_nested():
 
 
 def test_format_stylish_dict_value():
-    diff_tree = [
-        {
-            'type': 'added',
-            'key': 'a',
-            'value': {'b': 1, 'c': 2}
-        }
-    ]
+    diff_tree = [{"type": "added", "key": "a", "value": {"b": 1, "c": 2}}]
 
     result = format_stylish(diff_tree)
     # Verifica que los diccionarios anidados se formateen correctamente

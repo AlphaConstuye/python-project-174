@@ -4,37 +4,37 @@
 def format_value(value):
     """Format values for plain output."""
     if isinstance(value, (dict, list)):
-        return '[complex value]'
+        return "[complex value]"
     elif isinstance(value, str):
         return f"'{value}'"
     elif value is None:
-        return 'null'
+        return "null"
     elif isinstance(value, bool):
         return str(value).lower()
     else:
         return value
 
 
-def format_plain(diff_tree, path=''):
+def format_plain(diff_tree, path=""):
     """Format diff tree in plain format."""
     lines = []
 
-    for node in sorted(diff_tree, key=lambda x: x['key']):
-        key = node['key']
-        node_type = node['type']
+    for node in sorted(diff_tree, key=lambda x: x["key"]):
+        key = node["key"]
+        node_type = node["type"]
         current_path = f"{path}.{key}" if path else key
 
-        if node_type == 'nested':
-            lines.append(format_plain(node['children'], current_path))
-        elif node_type == 'added':
-            value = format_value(node['value'])
+        if node_type == "nested":
+            lines.append(format_plain(node["children"], current_path))
+        elif node_type == "added":
+            value = format_value(node["value"])
             line = f"Property '{current_path}' was added with value: {value}"
             lines.append(line)
-        elif node_type == 'removed':
+        elif node_type == "removed":
             lines.append(f"Property '{current_path}' was removed")
-        elif node_type == 'changed':
-            old_value = format_value(node['old_value'])
-            new_value = format_value(node['new_value'])
+        elif node_type == "changed":
+            old_value = format_value(node["old_value"])
+            new_value = format_value(node["new_value"])
             line = (
                 f"Property '{current_path}' was updated. "
                 f"From {old_value} to {new_value}"
