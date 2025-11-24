@@ -29,7 +29,7 @@ def test_mixed_formats():
     """Test que podemos comparar JSON con YAML"""
     json_file = os.path.join(FIXTURES_PATH, "file1.json")
     yaml_file = os.path.join(FIXTURES_PATH, "file1.yml")
-    
+
     # Ambos archivos deberían tener el mismo contenido
     result = generate_diff(json_file, yaml_file)
     # La diferencia debería ser vacía (o casi vacía)
@@ -37,7 +37,7 @@ def test_mixed_formats():
 
 def test_unsupported_format():
     """Test que verifica el manejo de formatos no soportados"""
-    with pytest.raises(ValueError, match="Formato no soportado"):
+    with pytest.raises(ValueError, match="Unsupported format"):
         generate_diff("file.txt", "file2.json")
 
 def test_nested_structures():
@@ -51,7 +51,7 @@ def test_nested_structures():
 def test_plain_format_flat():
     file1 = os.path.join(FIXTURES_PATH, "file1.json")
     file2 = os.path.join(FIXTURES_PATH, "file2.json")
-    
+
     result = generate_diff(file1, file2, 'plain')
     # Verifica que contiene las líneas esperadas
     assert "was added" in result or "was removed" in result or "was updated" in result
@@ -60,7 +60,7 @@ def test_plain_format_flat():
 def test_plain_format_nested():
     file1 = os.path.join(FIXTURES_PATH, "nested1.json")
     file2 = os.path.join(FIXTURES_PATH, "nested2.json")
-    
+
     result = generate_diff(file1, file2, 'plain')
     # Verifica algunas líneas específicas
     assert "common.follow" in result
@@ -70,7 +70,7 @@ def test_plain_format_nested():
 def test_json_format_flat():
     file1 = os.path.join(FIXTURES_PATH, "file1.json")
     file2 = os.path.join(FIXTURES_PATH, "file2.json")
-    
+
     result = generate_diff(file1, file2, 'json')
     # Verificar que es JSON válido
     import json
@@ -81,7 +81,7 @@ def test_json_format_flat():
 def test_json_format_nested():
     file1 = os.path.join(FIXTURES_PATH, "nested1.json")
     file2 = os.path.join(FIXTURES_PATH, "nested2.json")
-    
+
     result = generate_diff(file1, file2, 'json')
     import json
     parsed = json.loads(result)

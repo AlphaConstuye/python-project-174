@@ -1,0 +1,10 @@
+[format]
+indent-style = "space"
+line-ending = "lf"
+
+[lint]
+select = ["E", "F", "W"]
+ignore = ["E501", "E302"]
+
+[lint.per-file-ignores]
+"tests/*" = ["E501", "E302"]
