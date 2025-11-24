@@ -1,57 +1,87 @@
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/AlphaConstuye/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AlphaConstuye/python-project-174/actions)
+[![Actions Status](https://github.com/AlphaConstuye/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AlphaConstuye/python-project-174/actions/workflows/hexlet-check.yml)
 
+# Gendiff - Difference Generator
 
-# gendiff
-
-**gendiff** es una herramienta de línea de comandos que compara dos archivos de configuración y muestra sus diferencias de forma clara y estructurada.  
-Actualmente soporta archivos **JSON** y presenta las diferencias en un formato legible tipo “stylish”.
-
----
+**Gendiff** es una herramienta de línea de comandos que compara dos archivos de configuración (JSON o YAML) y muestra sus diferencias en múltiples formatos.
 
 ## Características
 
-- Compara archivos JSON.
-- Muestra qué claves fueron:
-  - Eliminadas (`-`)
-  - Agregadas (`+`)
-  - Modificadas
-  - Sin cambios
-- Ordena las claves alfabéticamente.
-- Puede usarse tanto:
-  - Desde la línea de comandos
-  - Como biblioteca dentro de un script Python
-
----
+- Soporta archivos **JSON** y **YAML**
+- Maneja **estructuras anidadas** complejas
+- **Tres formatos de salida**: stylish, plain, json
+- **Comparación recursiva** de objetos anidados
+- **CLI amigable** con opciones de formato
 
 ## Instalación
-
-Clona este repositorio:
 
 ```bash
 git clone https://github.com/AlphaConstuye/python-project-174
 cd python-project-174
+poetry install
 
-## Video demostración:
- https://asciinema.org/a/UFayigku3W3FhrwEJxMYLmana
+# Formato stylish (por defecto)
+poetry run gendiff file1.json file2.json
 
-## Soporte para formatos
+# Formato plain
+poetry run gendiff file1.yml file2.yml --format plain
 
-Ahora soporta tanto JSON como YAML:
-
-```bash
-# Comparar archivos JSON
-gendiff file1.json file2.json
-
-# Comparar archivos YAML
-gendiff file1.yml file2.yaml
+# Formato JSON
+poetry run gendiff file1.json file2.json --format json
 
 # Comparar formatos mixtos
-gendiff file1.json file2.yml
+poetry run gendiff file1.json file2.yml
 
-## Soporte para YAML
+from gendiff import generate_diff
 
-El comparador ahora soporta archivos YAML (.yml y .yaml):
+# Formato stylish (por defecto)
+diff = generate_diff('file1.json', 'file2.json')
 
-```bash
-gendiff file1.yml file2.yaml
+# Formato plain
+diff = generate_diff('file1.json', 'file2.json', 'plain')
+
+# Formato JSON
+diff = generate_diff('file1.json', 'file2.json', 'json')
+
+
+{
+    common: {
+      + follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+    }
+}
+
+
+Property 'common.follow' was added with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+
+[
+  {
+    "key": "common",
+    "type": "nested",
+    "children": [
+      {
+        "key": "follow",
+        "type": "added",
+        "value": false
+      },
+      {
+        "key": "setting2",
+        "type": "removed",
+        "value": 200
+      }
+    ]
+  }
+]
+
+
