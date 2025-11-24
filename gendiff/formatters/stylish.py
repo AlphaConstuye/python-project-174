@@ -1,5 +1,8 @@
+"""Stylish formatter for diff output."""
+
+
 def format_value(value, depth):
-    """Formatea valores para la salida"""
+    """Format values for output."""
     if isinstance(value, bool):
         return str(value).lower()
     elif value is None:
@@ -11,7 +14,7 @@ def format_value(value, depth):
 
 
 def format_dict(dictionary, depth):
-    """Formatea un diccionario anidado"""
+    """Format a nested dictionary."""
     if not dictionary:
         return "{}"
 
@@ -27,9 +30,7 @@ def format_dict(dictionary, depth):
 
 
 def format_stylish(diff_tree, depth=0):
-    """
-    Formatea el árbol de diferencias en formato stylish
-    """
+    """Format diff tree in stylish format."""
     lines = []
     indent = "    " * depth
 

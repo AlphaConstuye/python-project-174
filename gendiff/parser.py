@@ -1,21 +1,21 @@
+"""File parsing module for JSON and YAML formats."""
+
 import json
 import yaml
 
 
 def load_file(file_path):
-    """
-    Carga y parsea un archivo según su formato (JSON o YAML)
-    """
+    """Load and parse a file according to its format."""
     if file_path.endswith('.json'):
-        with open(file_path) as f:
-            return json.load(f)
+        with open(file_path, encoding='utf-8') as file:
+            return json.load(file)
     elif file_path.endswith(('.yml', '.yaml')):
-        with open(file_path) as f:
-            return yaml.safe_load(f)
+        with open(file_path, encoding='utf-8') as file:
+            return yaml.safe_load(file)
     else:
-        raise ValueError(f"Formato no soportado: {file_path}")
+        raise ValueError(f"Unsupported format: {file_path}")
 
 
-# Mantén la función load_json para compatibilidad con código existente
 def load_json(path):
+    """Load JSON file (maintained for backward compatibility)."""
     return load_file(path)

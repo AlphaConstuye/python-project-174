@@ -1,5 +1,8 @@
+"""Plain formatter for diff output."""
+
+
 def format_value(value):
-    """Formatea valores para el output plain"""
+    """Format values for plain output."""
     if isinstance(value, (dict, list)):
         return '[complex value]'
     elif isinstance(value, str):
@@ -13,9 +16,7 @@ def format_value(value):
 
 
 def format_plain(diff_tree, path=''):
-    """
-    Formatea el árbol de diferencias en formato plain
-    """
+    """Format diff tree in plain format."""
     lines = []
 
     for node in sorted(diff_tree, key=lambda x: x['key']):
@@ -34,8 +35,10 @@ def format_plain(diff_tree, path=''):
         elif node_type == 'changed':
             old_value = format_value(node['old_value'])
             new_value = format_value(node['new_value'])
-            line = (f"Property '{current_path}' was updated. "
-                    f"From {old_value} to {new_value}")
+            line = (
+                f"Property '{current_path}' was updated. "
+                f"From {old_value} to {new_value}"
+            )
             lines.append(line)
 
     return "\n".join([line for line in lines if line])

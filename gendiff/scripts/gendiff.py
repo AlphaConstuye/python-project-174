@@ -1,8 +1,11 @@
+"""Command line interface for gendiff."""
+
 import argparse
 from gendiff import generate_diff
 
 
 def main():
+    """Run the gendiff command line interface."""
     parser = argparse.ArgumentParser(
         description="Compares two configuration files and shows a difference."
     )
