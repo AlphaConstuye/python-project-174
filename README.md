@@ -85,3 +85,20 @@ Property 'common.setting5' was added with value: [complex value]
 ]
 
 
+Links Asciinema
+
+asciinema upload demo_stylish.cast
+View the recording at:
+
+    https://asciinema.org/a/OCSckhEkFnklB2805dgX6QdZ4
+
+asciinema upload demo_plain.cast
+View the recording at:
+
+    https://asciinema.org/a/VO9b22WKMMiPVE4htDAdDryOz
+
+asciinema upload demo_json.cast
+View the recording at:
+
+    https://asciinema.org/a/fJI3Ah8EonGQ1kDRJxaLTTyDe
+
