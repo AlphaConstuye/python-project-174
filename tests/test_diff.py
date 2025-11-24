@@ -54,7 +54,8 @@ def test_plain_format_flat():
 
     result = generate_diff(file1, file2, 'plain')
     # Verifica que contiene las líneas esperadas
-    assert "was added" in result or "was removed" in result or "was updated" in result
+    assert ("was added" in result or "was removed" in result
+            or "was updated" in result)
 
 
 def test_plain_format_nested():

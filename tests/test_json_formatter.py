@@ -6,7 +6,8 @@ def test_format_json_flat():
     diff_tree = [
         {'type': 'added', 'key': 'follow', 'value': False},
         {'type': 'removed', 'key': 'setting2', 'value': 200},
-        {'type': 'changed', 'key': 'setting3', 'old_value': True, 'new_value': None}
+        {'type': 'changed', 'key': 'setting3',
+         'old_value': True, 'new_value': None}
     ]
 
     result = format_json(diff_tree)
@@ -27,7 +28,8 @@ def test_format_json_nested():
             'key': 'common',
             'children': [
                 {'type': 'added', 'key': 'follow', 'value': False},
-                {'type': 'changed', 'key': 'setting3', 'old_value': True, 'new_value': None}
+                {'type': 'changed', 'key': 'setting3',
+                 'old_value': True, 'new_value': None}
             ]
         }
     ]
@@ -44,7 +46,8 @@ def test_format_json_nested():
 def test_format_json_complex_values():
     diff_tree = [
         {'type': 'added', 'key': 'setting5', 'value': {'key5': 'value5'}},
-        {'type': 'changed', 'key': 'nest', 'old_value': {'key': 'value'}, 'new_value': 'str'}
+        {'type': 'changed', 'key': 'nest',
+         'old_value': {'key': 'value'}, 'new_value': 'str'}
     ]
 
     result = format_json(diff_tree)
