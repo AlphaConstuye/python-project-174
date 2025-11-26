@@ -1,5 +1,9 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/AlphaConstuye/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AlphaConstuye/python-project-174/actions/workflows/hexlet-check.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/TU_CODECLIMATE_REPO_ID/maintainability)](https://codeclimate.com/github/AlphaConstuye/python-project-174/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/TU_CODECLIMATE_REPO_ID/coverage)](https://codeclimate.com/github/AlphaConstuye/python-project-174)
+
+# Gendiff - Difference Generator
 
 # Gendiff - Difference Generator
 

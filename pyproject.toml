@@ -34,3 +34,8 @@ dev = [
     "bandit (>=1.9.2,<2.0.0)",
     "ruff (>=0.14.6,<0.15.0)"
 ]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=gendiff --cov-report=term-missing --cov-report=xml"
+testpaths = ["tests"]
