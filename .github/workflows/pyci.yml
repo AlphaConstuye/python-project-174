@@ -27,7 +27,8 @@ jobs:
 
     - name: Download CodeClimate test reporter
       run: |
-        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        # Usar la URL de GitHub releases en lugar de codeclimate.com
+        curl -L https://github.com/codeclimate/test-reporter/releases/latest/download/cc-test-reporter-linux-amd64 > ./cc-test-reporter
         chmod +x ./cc-test-reporter
 
     - name: Run linter
